@@ -1,0 +1,143 @@
+/* vim:ft=css */
+/*
+ *  Designed for 3 monitor sizes: 1080x1920, 1920x1080, 3440x1440
+ *  Styles are handled from smallest to largest screen width
+ *  Separate styles for wider screens are handed by @media queries
+ */
+
+configuration {
+    font:                "TerminessTTF Nerd Font Mono 14";
+    show-icons:          false;
+    icon-theme:          "ePapirus";
+    drun-display-format: "{name}";
+    disable-history:     false;
+    fullscreen:          true;
+    hide-scrollbar:      true;
+    sidebar-mode:        false;
+    kb-select-1:         "S";
+    kb-select-2:         "r";
+    kb-select-3:         "l";
+    kb-select-4:         "s";
+    kb-select-5:         "e";
+}
+
+@import "../styles/matpale_colors.rasi"
+
+* {
+    background-color: transparent;
+}
+
+window {
+    transparency: "real";
+}
+
+mainbox {
+    background-color: @background;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    children: [ buffer, prompt, buffer ];
+    orientation: horizontal;
+    margin: 10% 0% 15%;
+}
+
+prompt {
+    color: @foreground;
+    expand: false;
+    font: "Clarity City Thin 108";
+}
+
+buffer {
+    expand: true;
+}
+
+listview {
+    cycle: true;
+    dynamic: true;
+    fixed-columns: true;
+    fixed-height: true;
+    layout: vertical;
+    margin: 0% 40% 0% 40%;
+    spacing: 5%;
+}
+
+element {
+    background-color: @background-alt;
+    border-radius: 25px;
+    children: [ element-text ];
+    color: @foreground;
+    padding: 2% 0% 5% 0%;
+}
+
+element-text {
+    expand: true;
+    font: "TerminessTTF Nerd Font Mono 64";
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color: @urgent;
+    color: @foreground;
+    border-radius: 0.2%;
+}
+
+element normal.active,
+element alternate.active {
+    background-color: @background-alt;
+    color: @foreground;
+}
+
+element selected {
+    background-color: @accent;
+    color: @background-alt;
+}
+
+element selected.urgent {
+    background-color: @urgent;
+    text-color: @foreground;
+}
+
+element selected.active {
+    background-color: @background-alt;
+    color: @foreground;
+}
+
+@media (min-width: 1920px) {
+    inputbar {
+        margin: 15% 0% 25%;
+    }
+
+    prompt {
+        font: "Clarity City Thin 128";
+    }
+
+    listview {
+        layout: horizontal;
+        margin: 0% 15.25%;
+        spacing: 2%;
+    }
+
+    element {
+        padding: 4% 5% 10.5% 5%;
+    }
+}
+@media (min-width: 3440px) {
+    prompt {
+        font: "Clarity City Thin 164";
+    }
+
+    listview {
+        margin: 0% 16.25%;
+    }
+
+    element-text {
+        font: "TerminessTTF Nerd Font Mono 96";
+    }
+
+    element {
+        padding: 5% 5% 12.5% 5%;
+    }
+}

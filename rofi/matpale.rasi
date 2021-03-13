@@ -1,0 +1,102 @@
+/* vim:ft=css */
+/*
+ *  Designed for 3 monitor sizes: 1080x1920, 1920x1080, 3440x1440
+ *  Styles are handled from smallest to largest screen width
+ *  Separate styles for wider screens are handed by @media queries
+ */
+
+@import "styles/matpale_colors.rasi"
+
+* {
+    background-color: transparent;
+}
+
+window {
+    background-color: @background;
+    transparency: "real";
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    padding: 10% 8.5% 5% 8.5%;
+    spacing: 8%;
+}
+
+inputbar {
+    background-color: @background-alt;
+    border-radius: 50%;
+    children: [ prompt, entry ];
+    margin: 0% 15%;
+    padding: 12px 20px;
+}
+prompt {
+    color: @foreground;
+    padding: 0 10px 0 0;
+}
+entry {
+    color: @foreground;
+    placeholder: " Search";
+    placeholder-color: @foreground-alt;
+}
+
+listview {
+    columns: 4;
+    cycle: false;
+    dynamic: true;
+    spacing: 1%;
+}
+element {
+    /*children: [ buffer, box, buffer ];*/
+    color: @foreground-bright;
+    /*orientation: horizontal;*/
+    orientation: vertical;
+    padding: 2% 0%;
+}
+/*
+buffer {
+    expand: true;
+}
+box {
+    children: [ element-icon, element-text ];
+    orientation: vertical;
+    expand: false;
+    padding: 2% 5%;
+}
+*/
+element-icon {
+    size: 85px;
+}
+element-text {
+    horizontal-align: 0.5;
+    font: "TerminessTTF Nerd Font 14";
+    margin: 0.5% 0.5% -0.5% 0.5%;
+    vertical-align: 0.5;
+}
+element selected {
+    background-color: @background-alt-trans;
+    border-radius: 12px;
+    color: @accent;
+}
+
+@media (min-width: 1920px) {
+    inputbar {
+        margin: 0% 25%;
+    }
+
+    listview {
+        columns: 7;
+    }
+}
+@media (min-width: 3440px) {
+    inputbar {
+        margin: 0% 30%;
+    }
+
+    listview {
+        columns: 10;
+    }
+    element-icon {
+        size: 96px;
+    }
+}
+

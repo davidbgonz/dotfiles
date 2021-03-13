@@ -1,0 +1,19 @@
+/* vim:ft=css */
+/* To get the full list of options: rofi -dump-config */
+configuration {
+    modi: "window";
+    font: "TerminessTTF Nerd Font 16";
+    show-icons: true;
+    icon-theme: "ePapirus";
+    drun-display-format: "{name}";
+    hide-scrollbar: true;
+    fullscreen: true;
+    window-format: "{t}";
+    theme: "matpale";
+    window-thumbnail: true;
+    display-window: " ";
+    display-run: " ";
+    display-drun: " ";
+    display-combi: " ";
+    display-file-browser: " ";
+}
