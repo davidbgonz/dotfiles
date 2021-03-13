@@ -1,0 +1,50 @@
+[global_config]
+  focus = mouse
+  borderless = True
+  scroll_tabbar = True
+  hide_from_taskbar = True
+  title_transmit_bg_color = "#82aaff"
+  title_receive_bg_color = "#41485f"
+  title_inactive_fg_color = "#959dcb"
+  title_inactive_bg_color = "#292d3e"
+  inactive_color_offset = 0.807692307692
+  enabled_plugins = APTURLHandler, LaunchpadCodeURLHandler, LaunchpadBugURLHandler
+  suppress_multiple_term_dialog = True
+  always_split_with_profile = True
+  title_use_system_font = False
+  title_font = TerminessTTF Nerd Font Medium 14 
+[keybindings]
+  go_up = <Shift>Up
+  go_down = <Shift>Down
+  next_tab = <Shift>Right
+  prev_tab = <Shift>Left
+[profiles]
+  [[default]]
+    background_darkness = 0.95
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    foreground_color = "#dedede"
+    scrollbar_position = hidden
+    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    login_shell = True
+  [[Material Pale]]
+    background_color = "#292d3e"
+    background_darkness = 0.9
+    background_type = transparent
+    cursor_color = "#eaecf5"
+    font = TerminessTTF Nerd Font Medium 14
+    foreground_color = "#959dcb"
+    show_titlebar = False
+    scrollbar_position = hidden
+    palette = "#41485f:#f07178:#c3e88d:#ffcb6b:#82aaff:#c792ea:#89ddff:#959dcb:#41485f:#f07178:#c3e88d:#ffcb6b:#82aaff:#c792ea:#89ddff:#eaecf5"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = Material Pale
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins] 
