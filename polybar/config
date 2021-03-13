@@ -1,0 +1,602 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;==========================================================
+
+[colors]
+;background = ${xrdb:color0:#222}
+background = #292D3E
+background-alt = #41485F
+;foreground = ${xrdb:color7:#222}
+foreground = #959DCB
+foreground-alt = #959DCB
+primary = #82AAFF
+secondary = #C792EA
+alert = #F07178
+BG = #292D3E
+FG = #959DCB
+FG-alt = #FFF
+BLK = #41485F
+BLK-alt = #565679
+RED = #F07178
+GRN = #C3E88D
+YLW = #FFCB6B
+BLU = #82AAFF
+MAG = #C792EA
+CYN = #89DDFF
+
+[bar/center]
+monitor = ${env:MONITOR:eDP-1}
+width = 100%
+height = 27
+radius = 5
+fixed-center = false
+
+background = ${colors.BG}
+foreground = ${colors.FG}
+
+line-size = 3
+line-color = #f00
+
+border-top-size = 10
+border-right-size = 10
+border-left-size = 10
+border-color = #00000000
+
+module-margin = 1
+
+font-0 = "TerminessTTF Nerd Font:pixelsize=13;1"
+font-1 = "Wuncon Siji:pixelsize=14;1"
+font-2 = "Material Icons:pixelsize=12;2"
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=10;1"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=10;1"
+font-5 = "Font Awesome 5 Brands:pixelsize=10;1"
+font-6 = "xos4 Terminus:pixelsize=14;1"
+font-7 = "Weather Icons:pixelsize=11;2"
+font-8 = "material\-wifi:size=12;2"
+
+modules-left = i3 archUpdates trash mpd
+modules-center = player
+modules-right = ${env:RIGHT_MODULES_MAIN:weather backlight-acpi alsa battery date powermenu}
+
+wm-name = i3
+
+tray-background = ${colors.BLK}
+tray-padding = 2
+tray-position = ${env:TRAY_POS_MAIN:none}
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+date =
+
+[bar/left]
+monitor = ${env:EXT_MONITOR_LEFT}
+width = 100%
+height = 27
+radius = 5
+fixed-center = false
+
+background = ${colors.BG}
+foreground = ${colors.FG}
+
+line-size = 3
+line-color = #f00
+
+border-top-size = 10
+border-right-size = 10
+border-left-size = 10
+border-color = #00000000
+
+module-margin = 1
+
+font-0 = "TerminessTTF Nerd Font:pixelsize=11;1"
+font-1 = "Wuncon Siji:pixelsize=12;1"
+font-2 = "Material Icons:pixelsize=10;2"
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
+font-5 = "Font Awesome 5 Brands:pixelsize=8;1"
+font-6 = "xos4 Terminus:pixelsize=12;1"
+font-7 = "Weather Icons:pixelsize=8;1"
+font-8 = "material\-wifi:size=10;2"
+
+modules-left = i3 archUpdates trash mpd
+modules-center = player
+modules-right = weather alsa battery date powermenu
+
+tray-background = ${colors.BLK}
+tray-padding = 2
+tray-position = ${env:TRAY_POS_ALT:none}
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+date = "  %Y-%m-%d"
+#date =
+
+[bar/right]
+monitor = ${env:EXT_MONITOR_RIGHT}
+width = 100%
+height = 27
+radius = 5
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-top-size = 10
+border-right-size = 10
+border-left-size = 10
+border-color = #00000000
+
+module-margin = 1
+
+font-0 = "TerminessTTF Nerd Font:size=11;1"
+font-1 = "Wuncon Siji:size=12;1"
+font-2 = "Material Icons:style=Regular:size=10;2"
+font-3 = "Font Awesome 5 Free:style=Regular:size=8;1"
+font-4 = "Font Awesome 5 Free:style=Solid:size=8;1"
+font-5 = "Font Awesome 5 Brands:size=8;1"
+font-6 = "xos4 Terminus:size=12;1"
+font-7 = "Weather Icons:size=8;1"
+font-8 = "material\-wifi:size=10;2"
+
+modules-left = ${env:LEFT_MODULES_EXT_RIGHT_VERT:i3 archUpdates trash mpd}
+modules-center = ${env:CENTER_MODULES_EXT_RIGHT_VERT:player}
+modules-right = weather alsa eth wlan battery date powermenu
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+#date = " %Y-%m-%d"
+date =
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = caps lock
+blacklist-2 = scroll lock
+
+format-prefix = " "
+
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-overline = ${colors.BLU}
+
+label-layout = %name%
+label-layout-overline = ${colors.BLU}
+
+label-indicator-on = %name%
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+
+label-indicator-on-capslock = 
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-foreground = ${colors.BLK-alt}
+label-unfocused-padding = 2
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${colors.BG}
+label-visible-underline = ${colors.FG}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-foreground = ${colors.alert}
+label-urgent-underline = ${colors.alert}
+label-urgent-padding = 2
+
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev>  <toggle>  <icon-next>  <icon-consume>  <icon-random>  <bar-progress> <label-song>
+format-offline = <label-offline>
+
+icon-prev = 玲
+icon-stop = 
+icon-play = 契
+icon-pause = 
+icon-next = 怜
+icon-random = 咽
+icon-repeat = 凌
+icon-single = 綾
+icon-consume = 羅
+
+label-song = %artist:0:15% - %title%
+label-song-maxlen = 55
+label-song-ellipsis = true
+
+label-offline = "mpd offline"
+
+toggle-off-foreground = #545A6F
+bar-progress-width = 30
+bar-progress-indicator = %{T7}│%{T-}
+bar-progress-fill = %{T7}─%{T-}
+bar-progress-empty = %{F#545A6F}%{T7}─%{T-}%{F-}
+
+[module/xbacklight]
+type = internal/xbacklight
+
+; XRandR output to get values from
+; Default: the monitor defined for the running bar
+output = eDP-1
+
+format = <ramp> <bar>
+label = %percentage%%
+enable-scroll = true
+
+ramp-font = 8
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-5 = 
+ramp-6 = 
+ramp-7 = 
+ramp-8 = 
+ramp-9 = 
+ramp-10 = 
+ramp-11 = 
+ramp-12 = 
+ramp-13 = 
+ramp-14 = 
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #fff
+bar-indicator-font = 7
+bar-fill = ─
+bar-fill-font = 7
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 7
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #f90000
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bffdc
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlp59s0
+interval = 3.0
+
+#format-connected = %{A1:wicd-client -n:}<ramp-signal> <label-connected>%{A}
+format-connected = %{A1:urxvt -e nmtui:}<ramp-signal> <label-connected>%{A}
+format-connected-overline = #9f78e1
+label-connected = %essid%
+
+#format-disconnected = %{A1:wicd-client -n:}<label-disconnected>%{A}
+format-disconnected = %{A1:urxvt -e nmtui:}<label-disconnected>%{A}
+format-disconnected-overline = ${colors.RED}
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.RED}
+
+ramp-signal-0 = %{T9}%{T-}
+ramp-signal-0-foreground = ${colors.RED}
+ramp-signal-1 = %{T9}%{T-}
+ramp-signal-1-foreground = ${colors.YLW}
+ramp-signal-2 = %{T9}%{T-}
+ramp-signal-3 = %{T9}%{T-}
+#ramp-signal-4 = %{T8}%{T-}
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/wired-network]
+type = internal/network
+interface = enp58s0u1u2i5
+interval = 3.0
+
+format-connected-overline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+#label-connected = %{A1:wicd-client -n:}%local_ip%%{A}
+label-connected = %{A1:urxvt -e nmtui:}%local_ip%%{A}
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = ${root.date}
+date-alt = "  %Y-%m-%d"
+
+time = " %I:%M %p"
+time-alt = " %I:%M %p"
+
+format-prefix-foreground = ${colors.foreground-alt}
+
+label = %date% %time%
+
+[module/alsa]
+;type = internal/alsa
+type = internal/pulseaudio
+
+;master-soundcard = hw:0
+;speaker-soundcard = hw:0
+;headphone-soundcard = hw:0
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+format-volume = %{A3:pavucontrol:}<ramp-volume> <bar-volume>%{A}
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = "婢 "
+format-muted-foreground = ${colors.BLK-alt}
+label-muted = muted
+
+master-mixer = Master
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 1
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+ramp-headphones-0 = 
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.GRN}
+bar-volume-foreground-1 = ${colors.GRN}
+bar-volume-foreground-2 = ${colors.GRN}
+bar-volume-foreground-3 = ${colors.GRN}
+bar-volume-foreground-4 = ${colors.YLW}
+bar-volume-foreground-5 = ${colors.YLW}
+bar-volume-foreground-6 = ${colors.alert}
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 7
+bar-volume-fill = ─
+bar-volume-fill-font = 7
+bar-volume-empty = ─
+bar-volume-empty-font = 7
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC0
+
+format-charging = %{A1:tlpui:}<animation-charging> <label-charging>%{A}
+format-charging-overline = ${colors.YLW}
+
+format-discharging = %{A1:tlpui:}<ramp-capacity> <label-discharging>%{A}
+#format-discharging-overline = ${colors.FG}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.GRN}
+format-full-overline = ${colors.GRN}
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.RED}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.RED}
+ramp-capacity-2 = 
+ramp-capacity-2-foreground = ${colors.RED}
+ramp-capacity-3 = 
+ramp-capacity-3-foreground = ${colors.YLW}
+ramp-capacity-4 = 
+ramp-capacity-4-foreground = ${colors.YLW}
+ramp-capacity-5 = 
+ramp-capacity-5-foreground = ${colors.YLW}
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+ramp-capacity-9-foreground = ${colors.GRN}
+ramp-capacity-10 = 
+ramp-capacity-10-foreground = ${colors.GRN}
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-5 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+format-margin = 0
+format-background = #202431
+
+label-open = "⏻ "
+label-open-foreground = ${colors.alert}
+label-open-padding = 2
+label-close = "    cancel"
+label-close-foreground = ${colors.alert}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = "power off  "
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = "reboot  "
+menu-1-1-exec = systemctl reboot
+
+menu-2-0 = power off
+menu-2-0-exec = systemctl poweroff
+menu-2-1 = "cancel  "
+menu-2-1-exec = menu-open-0
+
+[module/caffeine]
+type = custom/menu
+trail = false
+
+expand-right = true
+
+format-spacing = 1
+format-margin = 0
+format-background = #202431
+
+label-open = " "
+label-open-padding = 2
+label-open-foreground = ${colors.alert}
+label-close = "   "
+label-close-foreground = ${colors.alert}
+label-separator = "|"
+
+menu-0-0 = " "
+menu-0-0-exec = "caffeine kill; caffeine -a &"
+menu-0-1 = " "
+menu-0-1-exec = "caffeine kill; caffeine -d &"
+menu-0-2 = "  "
+menu-0-2-exec = caffeine kill
+
+[module/trash]
+type = custom/script
+exec = ~/.config/polybar/trash.sh
+exec-if = "ls -U -1 ~/.local/share/Trash/files | wc -l | grep -v 0"
+interval = 60
+label-active-font = 3
+;label =  %output%
+label = " "
+label-foreground = ${colors.RED}
+click-left = ~/.config/polybar/trash.sh --clean
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/weather.sh
+interval = 900
+
+[module/archUpdates]
+type = custom/script
+exec = ~/.config/polybar/archUpdates.sh
+interval = 300
+click-left = pamac-manager --updates
+
+[module/player]
+type = custom/script
+exec = ~/.config/polybar/community-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '{artist} - {:t20:{title}:}' --icon-playing '' --icon-paused '' --icon-stopped '' --icon-none ''
+tail = true
+label = %output%
+click-left = ~/.config/polybar/playerCtrl.sh previous
+click-right = ~/.config/polybar/playerCtrl.sh next
+click-middle = ~/.config/polybar/playerCtrl.sh play-pause
+;label-maxlen = 50
+
+[module/eth]
+type = custom/script
+exec = ~/.config/polybar/eth.sh
+format-overline = ${colors.BLU}
+
+[settings]
+screenchange-reload = true
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
