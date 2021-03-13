@@ -1,0 +1,44 @@
+#!/bin/bash
+ 
+#depends on: imagemagick, i3lock, scrot
+ 
+IMAGE=/tmp/lockscreen.png
+#TEXT=/tmp/locktext.png
+ICON=$HOME/.config/i3/if_locked.png
+
+# Size settings for indicator
+RADIUS=122
+RING_WIDTH=12
+
+# Text for indicator
+VERIF_TEXT=""
+WRONG_TEXT=""
+NO_INPUT_TEXT=""
+
+# Colors used for indicator
+TRANSPARENT="00000000"
+INSIDE_COLOR="$TRANSPARENT"
+INSIDE_VER_COLOR="82AAFF77"
+INSIDE_WRONG_COLOR="F0717877"
+RING_COLOR="$TRANSPARENT"
+RING_VER_COLOR="82AAFFFF"
+RING_WRONG_COLOR="F07178FF"
+KEY_HL_COLOR="C3E88DFF"
+BS_HL_COLOR="F07178FF"
+LINE_COLOR="$TRANSPARENT"
+SEPARATOR_COLOR="$TRANSPARENT"
+WRONG_COLOR="959DCBFF"
+ 
+scrot -o $IMAGE
+convert $IMAGE -scale 10% -scale 1000% -fill black -colorize 25% $IMAGE
+
+#[ -f $TEXT ] || {
+#    convert -size 3000x60 xc:white -font Noto-Sans-Regular -pointsize 26 -fill black -gravity center -annotate +0+0 'Type password to unlock' $TEXT;
+#    convert $TEXT -alpha set -channel A -evaluate set 50% $TEXT;
+#}
+
+#convert $IMAGE $TEXT -gravity center -geometry +0+200 -composite $IMAGE
+convert $IMAGE $ICON -gravity center -composite -matte $IMAGE
+
+#i3lock -u -i $IMAGE -t
+i3lock -i $IMAGE -t --pass-media-keys --screen=2 --radius=$RADIUS --ring-width $RING_WIDTH --veriftext=$VERIF_TEXT --wrongtext=$WRONG_TEXT --noinputtext=$NO_INPUT_TEXT --insidecolor=$INSIDE_COLOR --insidevercolor=$INSIDE_VER_COLOR --insidewrongcolor=$INSIDE_WRONG_COLOR --ringcolor=$RING_COLOR --ringvercolor=$RING_VER_COLOR --ringwrongcolor=$RING_WRONG_COLOR --keyhlcolor=$KEY_HL_COLOR --bshlcolor=$BS_HL_COLOR --linecolor=$LINE_COLOR --separatorcolor=$SEPARATOR_COLOR --wrongcolor=$WRONG_COLOR

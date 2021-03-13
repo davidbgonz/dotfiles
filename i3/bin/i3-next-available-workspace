@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Script occupies free workspace with lowest possible number
+# New workspace section based on https://https://github.com/lufterc/i3-new-workspace
+#     Which was based on https://github.com/sandeel/i3-new-workspace
+# This version of the new workspace section is a little bit easier on the CPU compared to jytrobridge's version
+# Move container to new workspace based on https://github.com/jytrowbridge/i3-next-available-workspace
+
+# Open a new workspace based on the lowest available workspace number.
+# Passing the -m flag will move the focused container to a new workspace
+# and set that workspace number as urgent
+MOVE_CONTAINER=false
+while getopts 'm' opt; do
+    case $opt in
+        m) MOVE_CONTAINER=true ;;
+        *) echo 'Error in command line parsing' >&2
+            exit 1
+    esac
+done
+
+WS_JSON=$(i3-msg -t get_workspaces)
+for i in {1..10}; do
+    if [[ $WS_JSON != *"\"num\":$i"* ]]; then
+        if "$MOVE_CONTAINER"; then
+            # Get get window name while it is still active
+            ACTIVE_WIN=$(xprop -id $(xdotool getactivewindow) | grep 'WM_NAME(STRING)' | cut -d'"' -f2)
+            # Move focused container to new workspace
+            i3-msg move container to workspace $i
+            # Set new workspace as urgent
+            wmctrl -r $ACTIVE_WIN -b add,demands_attention
+        else
+            # Create empty workspace
+            i3-msg workspace number $i
+        fi
+        break
+    fi
+done
