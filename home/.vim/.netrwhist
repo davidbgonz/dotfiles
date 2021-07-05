@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/gonzalezd13/.vim/bundle/vim-ps1'
+let g:netrw_dirhist_2='/home/gonzalezd13/.vim'
+let g:netrw_dirhist_1='/usr/local/share'
+let g:netrw_dirhist_0='/var/lib/mpd/.config'
+let g:netrw_dirhist_9='/usr/share/bubbleupnpserver'
+let g:netrw_dirhist_8='/home/gonzalezd13/.oh-my-zsh'
+let g:netrw_dirhist_7='/home/gonzalezd13/.oh-my-zsh/custom/chef'
+let g:netrw_dirhist_6='/home/gonzalezd13/.config'
+let g:netrw_dirhist_5='/home/gonzalezd13/.config/pulse'
+let g:netrw_dirhist_4='/home/gonzalezd13/.config'
