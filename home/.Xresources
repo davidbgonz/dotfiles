@@ -1,0 +1,87 @@
+! Set cursor size
+Xcursor.size: 28
+
+! X.org app color scheme:
+
+! URxvt Appearance
+URxvt.foreground:		#959DCB
+URxvt.background:		[95]#292D3E
+URxvt*depth:			32
+
+! Black
+URxvt.color0:			#41485F
+URxvt.color8:			#565679
+! Red
+URxvt.color1:			#F07178
+URxvt.color9:			#F07178
+! Green
+URxvt.color2:			#C3E88D
+URxvt.color10:			#C3E88D
+! Yellow
+URxvt.color3:			#FFCB6B
+URxvt.color11:			#FFCB6B
+! Blue
+URxvt.color4:			#82AAFF
+URxvt.color12:			#82AAFF
+! Magenta
+URxvt.color5:			#C792EA
+URxvt.color13:			#C792EA
+! Cyan
+URxvt.color6:			#89DDFF
+URxvt.color14:			#89DDFF
+! White
+URxvt.color7:			#989DCB
+URxvt.color15:			#FFFFFF
+
+! URxvt Formatting
+URxvt*font:				xft:TerminessTTF Nerd Font Mono:regular:size=12:antialias=true:hinting=true
+URxvt*boldFont:			xft:TerminessTTF Nerd Font Mono:bold:size=12:antialias=true:hinting=true
+URxvt.letterSpace:		1
+!URxvt.lineSpace
+URxvt*borderless:		1
+URxvt*internalBorder:	10
+URxvt*scrollBar:		false
+!URxvt*transparent:		true
+!URxvt*inheritPixmap:	true
+!URxvt*shading:			110
+
+! URxvt Behavior
+URxvt*scrollTtyOutput:		false
+URxvt*scrollTtyKeypress:	true
+URxvt*iso14755:				false
+URxvt*iso14755_52:			false
+URxvt*termName:				rxvt-unicode-256color
+
+! URxvt Extensions
+URxvt.perl-ext-common: 		default,resize-font,tabbedex
+!! Tabbedex settings
+URxvt.tabbedex.autohide: 		 yes
+URxvt.tabbedex.new-button: 		 no
+URxvt.tabbedex.no-tabbedex-keys: true
+URxvt.tabbedex.tabbar-fg:		 7
+URxvt.tabbedex.tabbar-bg:		 0
+URxvt.tabbedex.tab-fg:			 5
+URxvt.tabbedex.tab-bg:			 0
+!!! Tabbedex keybindings
+URxvt.keysym.S-Left:		tabbedex:prev_tab
+URxvt.keysym.S-Right:		tabbedex:next_tab
+URxvt.keysym.S-Down:		tabbedex:new_tab
+URxvt.keysym.S-Up:			tabbedex:rename_tab
+URxvt.keysym.S-C-Left:		tabbedex:move_tab_left
+URxvt.keysym.S-C-Right:		tabbedex:move_tab_right
+URxvt.keysym.M-1:			tabbedex:goto_tab_1
+URxvt.keysym.M-2:			tabbedex:goto_tab_2
+URxvt.keysym.M-3:			tabbedex:goto_tab_3
+URxvt.keysym.M-4:			tabbedex:goto_tab_4
+URxvt.keysym.M-5:			tabbedex:goto_tab_5
+URxvt.keysym.M-6:			tabbedex:goto_tab_6
+URxvt.keysym.M-7:			tabbedex:goto_tab_7
+URxvt.keysym.M-8:			tabbedex:goto_tab_8
+URxvt.keysym.M-9:			tabbedex:goto_tab_9
+URxvt.keysym.M-0:			tabbedex:goto_tab_0
+
+! URxvt Custom Keybindings
+URxvt.keysym.S-C-C:			eval:selection_to_clipboard
+URxvt.keysym.S-C-V:			eval:paste_clipboard
+URxvt.keysym.C-Left:		\033[1;5D
+URxvt.keysym.C-Right:		\033[1;5C
